@@ -1,0 +1,24 @@
+{
+  "name": "shadoware.org",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/plugin-sitemap": "^0.4.0",
+    "@gridsome/remark-prismjs": "^0.5.0",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.4",
+    "@microflash/gridsome-plugin-feed": "^1.2.1",
+    "gridsome": "^0.7.0",
+    "less": "^4.1.1",
+    "less-loader": "^7.0.0",
+    "remark": "^10.0.0",
+    "remark-attr": "^0.11.1",
+    "remark-inline-links": "^5.0.0",
+    "remark-toc": "^7.1.0",
+    "truncatise": "0.0.8"
+  }
+}

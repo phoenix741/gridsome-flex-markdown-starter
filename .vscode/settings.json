@@ -1,0 +1,5 @@
+{
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "afterDelay",
+  "debug.allowBreakpointsEverywhere": true
+}
