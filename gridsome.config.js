@@ -22,6 +22,11 @@ module.exports = {
       { type: "github", link: "//github.com/phoenix741/" },
       { type: "rss", link: "/feed.atom" },
     ],
+    utterances: {
+      repo: "phoenix741/comments.myblog",
+      issueTerm: "title",
+      label: "discussion",
+    },
   },
   plugins: [
     {

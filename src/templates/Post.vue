@@ -28,30 +28,34 @@
         </ul>
       </div>
 
-      <div class="commentswrap">
-        <div id="comments">
-          <GithubComponent
-            :title="$page.post.title"
-            repo="phoenix741/comments.shadoware.org"
-            :pathname="this.$route.path"
-            :url="url"
-            issueTerm="title"
-            label="discussion"
-          ></GithubComponent>
+      <ClientOnly>
+        <div class="commentswrap">
+          <div id="comments">
+            <GithubComponent
+              :title="$page.post.title"
+              :repo="$page.metadata.utterances.repo"
+              :pathname="this.$route.path"
+              :url="url"
+              :issueTerm="$page.metadata.utterances.issueTerm"
+              :label="$page.metadata.utterances.label"
+            ></GithubComponent>
+          </div>
         </div>
-      </div>
+      </ClientOnly>
     </article>
   </Layout>
 </template>
 
 <script>
 import PostHeaderTitle from "../components/PostHeaderTitle";
-import GithubComponent from '../components/GithubComponent';
 
 export default {
   components: {
     PostHeaderTitle,
-    GithubComponent
+    GithubComponent: () =>
+      import("../components/GithubComponent")
+        .then((m) => m.default)
+        .catch(),
   },
   metaInfo() {
     return {
@@ -67,7 +71,7 @@ export default {
   },
   computed: {
     origin() {
-      return process.isClient ? window.origin : this.$static.metadata.siteUrl;
+      return process.isClient ? window.origin : this.$page.metadata.siteUrl;
     },
     url() {
       return this.origin + this.$route.path;
@@ -121,6 +125,11 @@ query Post ($id: ID!) {
   }
   metadata {
 		siteUrl
+    utterances {
+      repo
+      issueTerm
+      label
+    }
 	}
 }
 </page-query>
